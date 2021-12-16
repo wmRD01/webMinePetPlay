@@ -2,143 +2,91 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>mine_demo</title>
-  <meta name="viewport"content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,viewport-fit=cover"/>
+
+  <title>Cocos Creator | mine_demo</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
   <meta name="renderer" content="webkit"/>
   <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
   <meta name="full-screen" content="yes"/>
   <meta name="x5-fullscreen" content="true"/>
   <meta name="360-fullscreen" content="true"/>
+  
+  <!-- force screen orientation on some browser -->
   <meta name="screen-orientation" content=""/>
   <meta name="x5-orientation" content="">
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
   <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.6e9cd.css"/>
+  <link rel="icon" href="favicon.8de18.ico"/>
 </head>
 <body>
-  <script>
-    // const libRootUrl = window.libraryPath && window.libraryPath != "" ? window.libraryPath.replace(
-    //   /\/([^\/]+\/[^\/]+)$/, '') + '/lib' : '../../lib';
-    // const gameRootURL = window.libraryPath && window.libraryPath != "" ? window.libraryPath + '/' : '';
-    // const headElem = document.getElementsByTagName('head')[0];
-
-    // gameIconCreate();
-    // cssCreate();
-    // jsLibCreate();
-
-    function gameIconCreate() {
-      const iconImgUrl = '/for1X/images/games-icon.3e2d1.png';
-      const linkElem1 = document.createElement('link');
-      const linkElem2 = document.createElement('link');
-      linkElem1.rel = 'apple-touch-icon';
-      linkElem2.rel = 'apple-touch-startup-image';
-      linkElem1.href = libRootUrl + iconImgUrl;
-      linkElem2.href = libRootUrl + iconImgUrl;
-      headElem.appendChild(linkElem1);
-      headElem.appendChild(linkElem2);
-    }
-
-    function cssCreate() {
-      const cssData = [
-        'style-mobile.6e9cd.css',
-        '/for1X/css/style.css',
-      ];
-      for (let i = 0; i < cssData.length; i++) {
-        const linkElem = document.createElement('link');
-        linkElem.rel = 'stylesheet';
-        linkElem.type = 'text/css';
-        linkElem.href = i == 0 ? gameRootURL + cssData[i] : libRootUrl + cssData[i];
-        headElem.appendChild(linkElem);
-      }
-    }
-
-    function jsLibCreate() {
-      const jsData = [
-        '/for1X/dist/Neworientationchangeend.1.1.2.js',
-        '/for1X/js/swiper.min.js',
-        '/language/loadingWord.js',
-        '/language/gameName.1.1.2.js',
-      ];
-      for (let i = 0; i < jsData.length; i++) {
-        const scriptElem = document.createElement('script');
-        scriptElem.type = "text/javascript";
-        scriptElem.src = libRootUrl + jsData[i];
-        headElem.appendChild(scriptElem);
-      }
-    }
-  </script>
- <div id="touchBox" class="touch-box"></div>
-  <div id="gameBox" class="game-box">
   <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
-</div>
-  <div id="splash"class="splash">
-    <div id="logo-wrap" class="logo-wrap"></div>
-    <div class="loading-bar">
-      <div class="circleloader"></div>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
     </div>
   </div>
-<script src="src/settings.18d3c.js" charset="utf-8"></script>
 
+<script src="src/settings.19f20.js" charset="utf-8"></script>
 
-<script>
-  (function () {
-      const bodyElem = document.getElementsByTagName('body')[0];
-      const jsDataURL = [
-        'src/settings.18d3c.js',
-        'main.95899.js',
-      ];
-      let jsCount = 0;
-      const loadJS = function() {
-        const scriptElem = document.createElement('script');
-        scriptElem.type = "text/javascript";
-        scriptElem.src = gameRootURL + jsDataURL[jsCount];
-        bodyElem.appendChild(scriptElem);
-        scriptElem.onload = function () {
-          jsCount += 1;
-          if (jsCount >= jsDataURL.length) {
-            cocos2dCreate();
-            cocos2dDebugCreate();
-          } else {
-            loadJS();
-          }
-        }
-      }
-      loadJS();
-    })();
+<script src="main.c9c8f.js" charset="utf-8"></script>
 
-    function cocos2dCreate() {
-      var splash = document.getElementById('splash');
-      splash.style.display = 'flex';
+<script type="text/javascript">
+(function () {
+    // open web debugger console
+    if (typeof VConsole !== 'undefined') {
+        window.vConsole = new VConsole();
+    }
 
-      var cocos2d = document.createElement('script');
-      cocos2d.async = true;
-      cocos2d.src = window._CCSettings.debug ? 'cocos2d-js.js' : gameRootURL+'cocos2d-js-min.38a8c.js';
+    var debug = window._CCSettings.debug;
+    var splash = document.getElementById('splash');
+    splash.style.display = 'block';
 
-      var engineLoaded = function () {
-          document.body.removeChild(cocos2d);
-          cocos2d.removeEventListener('load', engineLoaded, false);
-          window.eruda && eruda.init() && eruda.get('console').config.set('displayUnenumerable', false);
-          window.boot();
+    function loadScript (moduleName, cb) {
+      function scriptLoaded () {
+          document.body.removeChild(domScript);
+          domScript.removeEventListener('load', scriptLoaded, false);
+          cb && cb();
       };
-      cocos2d.addEventListener('load', engineLoaded, false);
-      document.body.appendChild(cocos2d);
+      var domScript = document.createElement('script');
+      domScript.async = true;
+      domScript.src = moduleName;
+      domScript.addEventListener('load', scriptLoaded, false);
+      document.body.appendChild(domScript);
     }
 
-    function cocos2dDebugCreate() {
-      let CocosDebug = false;
-      var DEBUG = false;
-      if (!DEBUG) {
-        if (!window.console) window.console = {};
-        var methods = ["log", "debug", "warn", "info", "timeEnd"];
-        for (var i = 0; i < methods.length; i++) {
-          console[methods[i]] = function () {};
-        }
+    loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.ace53.js', function () {
+      if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
+        loadScript(debug ? 'physics.js' : 'physics-min.js', window.boot);
       }
-    }
+      else {
+        window.boot();
+      }
+    });
+})();
 </script>
+
 
 </body>
 </html>

@@ -1,0 +1,320 @@
+.record-main {
+  font-family: Microsoft JhengHei UI, Microsoft JhengHei, PingFang TC, HeiTi TC, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1e1e1e;
+  font-size: 1.2em;
+  color: #FFF;
+  display: none;
+}
+
+.record-main.active {
+  display: block;
+  z-index: 250;
+}
+
+.record-main .record-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.record-main .record-content {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+}
+
+.record-main .record-content .record-content--box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.record-main .record-container .record-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #000000;
+}
+
+.record-main .record-container .record-nav .game-mode-title{
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  font-size: 1.2em;
+  font-weight: normal;
+  transform: translate(0, -50%);
+  margin: 0;
+  color: #ffa662;
+}
+
+.record-main .record-container .record-nav .btn-back {
+  display: block;
+  width: 40px;
+  height: 100%;
+  margin-left: 50px;
+  background-image: url(../images/btn-back.png);
+  background-position: left center;
+  background-size: 100% auto ;
+  background-repeat: no-repeat;
+}
+
+.record-main .game-grids {
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+.record-main .swiper-button-prev.swiper-button-disabled, .record-main .swiper-button-next.swiper-button-disabled {
+  display: none;
+}
+
+.record-main .swiper-button-prev, .record-main .swiper-button-next{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: none;
+  background:rgba(0, 0, 0, .5);
+}
+
+.record-main .swiper-button-prev {
+  /* left: calc(10px + constant(safe-area-inset-left)); */
+  left: 50px;
+}
+
+.record-main .swiper-button-next { 
+  right: 50px;
+}
+
+.record-main .swiper-button-prev::before, .record-main .swiper-button-next::before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url(../images/slider-arrow.png) center/50% no-repeat;
+}
+
+.record-main .swiper-button-prev::before {
+  transform: scale(-1);
+}
+
+.record-main .game-grids .game-grids--slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.record-main .game-grids .col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.record-main .game-grids .col .grid {
+  width: 130px;
+  height: 130px;
+  margin: 2px;
+  background-size: auto 98%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.record-main .game-grids .col .grid .bonus-txt {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  height: 25%;
+  width: 90%;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 100px;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+}
+.record-main .record-content .game-intro {
+  display: flex;
+  height: 50px;
+  background: #2a2a2a;
+  padding-left: constant(safe-area-inset-left);
+  padding-left: env(safe-area-inset-left);
+  padding-right: constant(safe-area-inset-right);
+  padding-right: env(safe-area-inset-right);
+}
+
+.record-main .record-content .game-intro .col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.record-main .record-content .game-intro .col span,
+.record-main .record-content .game-intro .col strong {
+  text-align: center;
+}
+
+.record-main .record-content .game-intro .col .title {
+  color: #a88e7a;
+}
+
+.record-main .record-content .game-intro .col strong {
+  font-weight: normal;
+}
+
+/* // xs - Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .record-main {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 320px) {
+  .record-main {
+    font-size: 0.9em;
+  }
+}
+
+/* // sm - Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .record-main {
+    font-size: 1em;
+  }
+}
+
+/* // md - Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .record-main {
+    font-size: 1.1em;
+  }
+}
+
+/* // lg - Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* // xl - Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .record-main .record-container .record-nav {
+    height: 120px;
+  }
+
+  .record-main .record-content {
+    height: calc(100% - 120px);
+  }
+
+  .record-main .record-content .game-intro {
+    height: 70px;
+  }
+
+  .record-main .game-grids {
+    height: calc(100% - 70px);
+  }
+}
+
+@media (orientation: portrait) {
+  .record-main .game-grids .col .grid {
+    width: 15vw;
+    height: 15vw;
+  }
+
+  .record-main .record-container .record-nav {
+    height: 150px;
+  }
+
+  .record-main .record-content {
+    height: calc(100% - 150px);
+  }
+
+  .record-main .record-content .game-intro {
+    height: 120px;
+  }
+
+  .record-main .game-grids {
+    height: calc(100% - 120px);
+  }
+
+  .record-main .record-container .record-nav .btn-back {
+    background-position: left 30px;
+  }
+  .record-main .record-container .record-nav .game-mode-title {
+    top: 30px;
+    transform: translate(0, 0);
+  }
+
+  .record-main .swiper-button-prev {
+    /* left: calc(10px + constant(safe-area-inset-left)); */
+    left: 10px;
+  }
+  
+  .record-main .swiper-button-next { 
+    right: 10px;
+  }
+
+  
+}
+
+@media (orientation: landscape) {
+  .record-main .game-grids .col .grid {
+    width: 15vh;
+    height: 15vh;
+  }
+
+  .record-main .swiper-button-prev {
+    /* left: calc(10px + constant(safe-area-inset-left)); */
+    left: 50px;
+  }
+  
+  .record-main .swiper-button-next { 
+    right: 50px;
+  }
+}
+
+@supports (padding-bottom: constant(safe-area-inset-bottom)) {
+  /*iOS < 11.2*/
+  /* :root {
+      --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+  } */
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  /*iOS >= 11.2*/
+  /* :root {
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  } */
+}
+
+
+.test {
+   background: #FFF;
+   width: 100px;
+   height: 100px;
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: 999;
+}
+
+.record-swiper-container {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}

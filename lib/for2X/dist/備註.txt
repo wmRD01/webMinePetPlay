@@ -1,5 +1,0 @@
-1.orientationchangeend.js  為 無延遲顯示手勢的版本
-
-2.Neworientationchangeend_old.js  為 有延遲顯示手勢的明宏版本 (有BUG:若一開始為橫式載入並開始玩遊戲轉直以後就不會再出現手勢無法全畫面)
-
-3.Neworientationchangeend.js  為 有延遲顯示手勢 請教美兒的羽彬版本 (目前沒有測出BUG的情況)
